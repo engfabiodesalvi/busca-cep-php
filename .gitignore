@@ -1,0 +1,34 @@
+# --- Dependências de terceiros ---
+# Nunca suba a pasta vendor. O usuário da biblioteca irá gerá-la.
+/vendor/
+
+# --- Configurações locais do Composer ---
+# Ignora arquivos de cache e autenticação local do Composer
+.composer/
+.php-cs-fixer.cache
+
+# --- Ferramentas de desenvolvimento e testes ---
+# Ignora relatórios de cobertura de código e dados do PHPUnit
+.phpunit.result.cache
+/html/
+/coverage/
+/.coverage/
+/build/
+
+# --- IDEs e Ambientes de desenvolvimento ---
+# PhpStorm
+.idea/
+*.phpstorm.meta.php
+
+# VS Code
+.vscode/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# --- Arquivos de Log e Env ---
+# Logs locais gerados por testes
+*.log
+.env
+.env.local

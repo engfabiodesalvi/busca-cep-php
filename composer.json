@@ -1,0 +1,20 @@
+{
+    "name": "engfabiodesalvi/busca-cep-php",
+    "description": "Busca de cep online",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Engfabiodesalvi\\BuscaCepPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fabio Toledo Bonemer De Salvi",
+            "email": "engfabiodesalvi@gmail.com"
+        }
+    ],
+    "require": {
+        "php":">=8.3.0"
+    }   
+}
