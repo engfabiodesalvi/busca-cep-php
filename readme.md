@@ -1,3 +1,11 @@
+# Buscadr de CEP
+
+Primeira versão do buscador de CEP
+
+## Exemplo de uso
+
+```php
+
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -10,3 +18,5 @@ $busca = new Search;
 $resultado = $busca->getAdressFromZipcode('01001000');
 
 print_r($resultado);
+
+```
