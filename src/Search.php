@@ -14,7 +14,7 @@ class Search{
         $get = file_get_contents($this->url . $zipCode . "/json");
 
         // Retorna o resultado
-        print_r($get);
+        return (array) json_decode($get);
 
     }
 
