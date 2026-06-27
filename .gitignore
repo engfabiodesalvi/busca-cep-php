@@ -7,6 +7,9 @@
 .composer/
 .php-cs-fixer.cache
 
+# A inclusão ou não do composer.lock depende da estratégia do projeto; em aplicações costuma-se versioná-lo, enquanto em bibliotecas geralmente ele é omitido.
+composer.lock
+
 # --- Ferramentas de desenvolvimento e testes ---
 # Ignora relatórios de cobertura de código e dados do PHPUnit
 .phpunit.result.cache
