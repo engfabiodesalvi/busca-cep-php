@@ -20,6 +20,13 @@
             "Engfabiodesalvi\\BuscaCepPhp\\": "src/"
         }
     },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Engfabiodesalvi\\BuscaCepPhp\\Tests\\": "src/"
+        }
+    },
+
     "authors": [
         {
             "name": "Fabio Toledo Bonemer De Salvi",
