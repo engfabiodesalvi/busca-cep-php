@@ -1,4 +1,4 @@
-# Buscador de CEP
+<!-- # Buscador de CEP
 
 Primeira versão do buscador de CEP.
 
@@ -19,4 +19,27 @@ $resultado = $busca->getAdressFromZipcode('01001000');
 
 print_r($resultado);
 
-```
+``` -->
+
+# Buscador de CEP
+
+Biblioteca PHP para consulta de CEP utilizando múltiplos provedores brasileiros.
+
+## Recursos
+
+- ViaCEP
+- CEP.la
+- WebmaniaBR
+- WideNet
+
+## Instalação
+
+composer require engfabiodesalvi/busca-cep-php
+
+## Requisitos
+
+- PHP 8.2+
+
+## Licença
+
+MIT
