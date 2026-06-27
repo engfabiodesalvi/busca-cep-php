@@ -1,7 +1,8 @@
 {
     "name": "engfabiodesalvi/busca-cep-php",
-    "description": "Busca de cep online",
+    "description": "Biblioteca PHP para consulta de CEP utilizando múltiplos provedores",
     "type": "library",
+    "minimum-stability": "stable",
     "license": "MIT",
     "autoload": {
         "psr-4": {

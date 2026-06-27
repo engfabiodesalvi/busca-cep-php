@@ -1,4 +1,4 @@
-# Buscadr de CEP
+# Buscador de CEP
 
 Primeira versão do buscador de CEP.
 
