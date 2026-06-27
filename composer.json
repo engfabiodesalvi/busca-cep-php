@@ -4,6 +4,17 @@
     "type": "library",
     "minimum-stability": "stable",
     "license": "MIT",
+
+    "keywords": [
+        "cep",
+        "viacep",
+        "webmania",
+        "cep-la",
+        "php",
+        "address",
+        "pstal-code"
+    ],
+
     "autoload": {
         "psr-4": {
             "Engfabiodesalvi\\BuscaCepPhp\\": "src/"
