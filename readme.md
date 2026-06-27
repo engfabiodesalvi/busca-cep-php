@@ -1,6 +1,6 @@
 # Buscadr de CEP
 
-Primeira versão do buscador de CEP
+Primeira versão do buscador de CEP.
 
 ## Exemplo de uso
 
