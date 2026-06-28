@@ -16,3 +16,4 @@ print_r($resultado);
 // Comando a serem executados após cada alteração de classe
 // $composer dump-autoload
 // $Composer validate
+// $Composer update

@@ -4,6 +4,7 @@
 // - saber qual API respondeu
 // - qual API falhou
 // - quanto tempo cada API demorou para responder
+// Compatível com PSR-3 (Logger)
 
 declare(strict_types=1);
 

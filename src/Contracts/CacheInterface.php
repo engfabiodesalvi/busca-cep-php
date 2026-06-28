@@ -5,6 +5,7 @@
 // - Memcached
 // - APCu
 // Sem alterar a biblioteca
+// Cmpatível com PSR-16 (Simple Cache)
 
 declare(strict_types=1);
 
