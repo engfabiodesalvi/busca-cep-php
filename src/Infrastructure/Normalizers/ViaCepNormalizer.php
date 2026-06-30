@@ -7,12 +7,15 @@ namespace Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers;
 use Engfabiodesalvi\BuscaCepPhp\Contracts\NormalizerInterface;
 use Engfabiodesalvi\BuscaCepPhp\Domain\DTO\Address;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\Provider;
+use Override;
 
 final class ViaCepNormalizer implements NormalizerInterface
 {
+    #[Override]
     public function normalize(
         array $data
-    ): Address {
+    ): Address
+    {
 
         return new Address(
             cep: $data['cep'] ?? '',
