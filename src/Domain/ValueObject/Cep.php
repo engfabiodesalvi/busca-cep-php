@@ -14,7 +14,7 @@
 
 declare(strict_types=1);
 
-namespace Engfabiodesalvi\BuscaCepPhp\ValueObject;
+namespace Engfabiodesalvi\BuscaCepPhp\Domain\ValueObject;
 
 use Engfabiodesalvi\BuscaCepPhp\Exceptions\InvalidCepException;
 
@@ -31,7 +31,7 @@ final readonly class Cep
             //     'CEP inválido.'
             // );
             throw new \Exception('CEP inválido.');
-        }
+        }        
 
         $this->value = $cep;        
     }

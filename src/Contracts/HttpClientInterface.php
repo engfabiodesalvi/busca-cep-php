@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace Engfabiodesalvi\BuscaCepPhp\Contracts;
 
-use Engfabiodesalvi\BuscaCepPhp\Http\Request;
-use Engfabiodesalvi\BuscaCepPhp\Http\Response;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\Request;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\Response;
 interface HttpClientInterface
 {
     /**
@@ -23,11 +23,11 @@ interface HttpClientInterface
     // Apenas retorna uma string.
     // json_decode() será realizado por outro componente.
     // Princípio da responsabilidade única.
-    public function get(
-        string $url,
-        array $headers = [],
-        int $timeut = 10
-    ): string;
+    // public function get(
+    //     string $url,
+    //     array $headers = [],
+    //     int $timeut = 10
+    // ): string;
 
 
     // Permite implementar futuramente:

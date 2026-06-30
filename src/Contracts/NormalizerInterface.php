@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace Engfabiodesalvi\BuscaCepPhp\Contracts;
 
 // Incluir dentro de Domain
-use Engfabiodesalvi\BuscaCepPhp\DTO\Address;
+use Engfabiodesalvi\BuscaCepPhp\Domain\DTO\Address;
 
 interface NormalizerInterface
 {
