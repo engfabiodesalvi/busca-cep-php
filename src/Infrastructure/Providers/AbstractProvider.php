@@ -16,7 +16,7 @@ abstract class AbstractProvider implements ProviderInterface
 {
     public function __construct(
         protected readonly HttpClientInterface $client,
-        protected readonly NormalizerInterface $normalizer
+        // protected readonly NormalizerInterface $normalizer
     ) {
 
     }
@@ -48,7 +48,9 @@ abstract class AbstractProvider implements ProviderInterface
             );            
         }
 
-        return $this->normalizer->normalize(
+        return $this
+            ->normalizer()
+            ->normalize(
             $response->json()
         );
 
@@ -57,4 +59,7 @@ abstract class AbstractProvider implements ProviderInterface
     abstract protected function buildRequest(
         Cep $cep
     ): Request;    
+
+    // A interface normalizaora é atribuida na imprementação do provedor
+    abstract protected function normalizer(): NormalizerInterface;
 }

@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers;
 
+use Engfabiodesalvi\BuscaCepPhp\Contracts\NormalizerInterface;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\HttpMethod;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\Provider;
 use Engfabiodesalvi\BuscaCepPhp\Domain\ValueObject\Cep;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\Request;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\CepAbertoNormalizer;
 use Override;
 
 final class CepAbertoProvider extends AbstractProvider
@@ -58,5 +60,11 @@ final class CepAbertoProvider extends AbstractProvider
             timeout: Provider::CEP_ABERTO
                 ->timeout()
         );        
+    }
+
+    #[Override]
+    protected function normalizer(): NormalizerInterface
+    {
+        return new CepAbertoNormalizer();
     }
 }

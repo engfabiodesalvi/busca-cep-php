@@ -2,10 +2,12 @@
 
 namespace Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers;
 
+use Engfabiodesalvi\BuscaCepPhp\Contracts\NormalizerInterface;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\HttpMethod;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\Provider;
 use Engfabiodesalvi\BuscaCepPhp\Domain\ValueObject\Cep;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\Request;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\BrasilApiNormalizer;
 use Override;
 
 final class BrasilApiProvider extends AbstractProvider
@@ -53,4 +55,10 @@ final class BrasilApiProvider extends AbstractProvider
                 ->timeout()
         );
     }
+
+    #[Override]
+    protected function normalizer(): NormalizerInterface
+    {
+        return new BrasilApiNormalizer();
+    }        
 }

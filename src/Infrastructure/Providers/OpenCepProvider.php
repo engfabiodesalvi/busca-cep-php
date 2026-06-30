@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers;
 
+use Engfabiodesalvi\BuscaCepPhp\Contracts\NormalizerInterface;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\HttpMethod;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\Provider;
 use Engfabiodesalvi\BuscaCepPhp\Domain\ValueObject\Cep;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\Request;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\OpenCepNormalizer;
 use Override;
 
 final class OpenCepProvider extends AbstractProvider
@@ -53,4 +55,9 @@ final class OpenCepProvider extends AbstractProvider
         );
     }
 
+    #[Override]
+    protected function normalizer(): NormalizerInterface
+    {
+        return new OpenCepNormalizer();
+    }
 }
