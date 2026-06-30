@@ -27,8 +27,11 @@ Biblioteca PHP para consulta de CEP utilizando múltiplos provedores brasileiros
 
 ## Recursos
 
-- ViaCEP
-- CEP.la
+- Via CEP
+- Open Cep
+- Brasil API
+- Cep Aberto
+- Awesome API
 - WebmaniaBR
 - WideNet
 
