@@ -7,16 +7,20 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Engfabiodesalvi\BuscaCepPhp\CepSearch;
 use Engfabiodesalvi\BuscaCepPhp\Domain\ValueObject\Cep;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\HttpClient;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\AwesomeApiNormalizer;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\BrasilApiNormalizer;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\CepAbertoNormalizer;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\OpenCepNormalizer;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\ViaCepNormalizer;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers\AwesomeApiProvider;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers\BrasilApiProvider;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers\CepAbertoProvider;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers\OpenCepProvider;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers\ViaCepProvider;
 
 $cep = new CepSearch();
 
-var_dump($cep);
+// var_dump($cep);
 
 // Via Cep
 $viaCepProvider = new ViaCepProvider(
@@ -24,14 +28,15 @@ $viaCepProvider = new ViaCepProvider(
     new ViaCepNormalizer
 );
 
-var_dump($viaCepProvider);
+// var_dump($viaCepProvider);
 
 
 $addressViaCep = $viaCepProvider->search(
     new Cep('01001000')
 );
 
-echo $addressViaCep->__toString() . "\n";
+// echo $addressViaCep->toJson() . "\n";
+echo sprintf("%-15s", "Via Cep") . ": " . $addressViaCep->__toString() . "\n";
 
 
 // Brasil API
@@ -40,24 +45,54 @@ $brasilApiProvider = new BrasilApiProvider(
     new BrasilApiNormalizer
 );
 
-var_dump($brasilApiProvider);
+// var_dump($brasilApiProvider);
 
 $addressBrasilApi = $brasilApiProvider->search(
     new Cep('01001000')
 );
 
-echo $addressBrasilApi->__toString() . "\n";
+echo sprintf("%-15s", "Brasil API") . ": " . $addressBrasilApi->__toString() . "\n";
 
 // Open CEP
-$openCepProvider = new openCepProvider(
+$openCepProvider = new OpenCepProvider(
     new HttpClient(),
     new OpenCepNormalizer
 );
 
-var_dump($openCepProvider);
+// var_dump($openCepProvider);
 
 $addressOpenCep = $openCepProvider->search(
     new Cep('01001000')
 );
 
-echo $addressOpenCep->__toString() . "\n";
+echo sprintf("%-15s", "Open CEP") . ": " . $addressOpenCep->__toString() . "\n";
+
+// Awesome API
+
+$awesomeApiProvider = new AwesomeApiProvider(
+    new HttpClient(),
+    new AwesomeApiNormalizer
+);
+
+// var_dump($awesomeApiProvider);
+
+$addressAwesomeApi = $awesomeApiProvider->search(
+    new Cep('01001000')
+);
+
+echo sprintf("%-15s", "Awesome API") . ": " . $addressAwesomeApi->__toString() . "\n";
+
+// CEP Aberto
+
+$cepAbertoProvider = new CepAbertoProvider(
+    new HttpClient(),
+    new CepAbertoNormalizer
+);
+
+// var_dump($cepAbertoProvider);
+
+$addressCepAberto = $cepAbertoProvider->search(
+    new Cep('01001000')
+);
+
+echo sprintf("%-15s", "CEP Aberto") . ": " . $addressCepAberto->__toString() . "\n";
