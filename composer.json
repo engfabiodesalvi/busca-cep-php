@@ -10,10 +10,13 @@
         "cep",
         "viacep",
         "webmania",
-        "cep-la",
+        "widenet",
+        "brasilapi",
+        "opencep",
+        "awesomeapi",
         "php",
         "address",
-        "pstal-code"
+        "postal-code"
     ],
 
     "autoload": {
