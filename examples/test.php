@@ -5,6 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Engfabiodesalvi\BuscaCepPhp\CepSearch;
+use Engfabiodesalvi\BuscaCepPhp\Collections\ProviderCollection;
 use Engfabiodesalvi\BuscaCepPhp\Domain\ValueObject\Cep;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\HttpClient;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Normalizers\AwesomeApiNormalizer;
@@ -24,8 +25,7 @@ $cep = new CepSearch();
 
 // Via Cep
 $viaCepProvider = new ViaCepProvider(
-    new HttpClient(),
-    new ViaCepNormalizer
+    new HttpClient()
 );
 
 // var_dump($viaCepProvider);
@@ -41,8 +41,7 @@ echo sprintf("%-15s", "Via Cep") . ": " . $addressViaCep->__toString() . "\n";
 
 // Brasil API
 $brasilApiProvider = new BrasilApiProvider(
-    new HttpClient(),
-    new BrasilApiNormalizer
+    new HttpClient()
 );
 
 // var_dump($brasilApiProvider);
@@ -55,8 +54,7 @@ echo sprintf("%-15s", "Brasil API") . ": " . $addressBrasilApi->__toString() . "
 
 // Open CEP
 $openCepProvider = new OpenCepProvider(
-    new HttpClient(),
-    new OpenCepNormalizer
+    new HttpClient()
 );
 
 // var_dump($openCepProvider);
@@ -70,8 +68,7 @@ echo sprintf("%-15s", "Open CEP") . ": " . $addressOpenCep->__toString() . "\n";
 // Awesome API
 
 $awesomeApiProvider = new AwesomeApiProvider(
-    new HttpClient(),
-    new AwesomeApiNormalizer
+    new HttpClient()
 );
 
 // var_dump($awesomeApiProvider);
@@ -85,8 +82,7 @@ echo sprintf("%-15s", "Awesome API") . ": " . $addressAwesomeApi->__toString() .
 // CEP Aberto
 
 $cepAbertoProvider = new CepAbertoProvider(
-    new HttpClient(),
-    new CepAbertoNormalizer
+    new HttpClient()
 );
 
 // var_dump($cepAbertoProvider);
