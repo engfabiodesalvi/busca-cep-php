@@ -46,7 +46,8 @@ final class HttpClient implements HttpClientInterface
                 false,
                 $context
             );
-            $headers = $http_response_header;
+            
+            $headers = $http_response_header ?? [];
 
         } finally {
 
@@ -58,7 +59,7 @@ final class HttpClient implements HttpClientInterface
             // throw new HttpException(
             //     'Resposta HTTP inválida.'
             // );
-            throw new Exception(
+            throw new \Exception(
                 'Resposta HTTP inválida.'
             );            
         }
