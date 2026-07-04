@@ -37,6 +37,11 @@ final readonly class Address
         return $this->street;
     }
 
+    public function complement(): string
+    {
+        return $this->complement;
+    }
+
     public function district(): string
     {
         return $this->district;
