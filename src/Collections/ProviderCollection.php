@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Engfabiodesalvi\BuscaCepPhp\Collections;
 
 use Engfabiodesalvi\BuscaCepPhp\Contracts\ProviderInterface;
+use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers\AbstractProvider;
 use IteratorAggregate;
 use ArrayIterator;
 use Traversable; 
@@ -12,13 +13,14 @@ use Traversable;
 final class ProviderCollection implements IteratorAggregate
 {
     /**
-     * @var ProviderInterface[]
+     * @var AbstractProvider[] //ProviderInterface[]
      */
     private array $providers = [];
 
-    /**
-     * @param ProviderInterface[] $providers
+    /**     
+     * @param AbstractProvider[] $providers
      */
+    // @param ProviderInterface[] $providers
     public function __construct(
         array $providers = []
     )
@@ -32,14 +34,15 @@ final class ProviderCollection implements IteratorAggregate
     }
 
     public function add(
-        ProviderInterface $provider
+        //ProviderInterface $provider
+        AbstractProvider $provider
     ): void {
 
         $this->providers[] = $provider;
     }
 
     /**
-     * @return ProviderInterface[]
+     * @return AbstractProvider[] //ProviderInterface[]
      */
     public function all(): array
     {
