@@ -13,12 +13,13 @@ namespace Engfabiodesalvi\BuscaCepPhp\Contracts;
 
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\Request;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http\Response;
+
 interface HttpClientInterface
 {
     /**
      * Executa uma requisição GET
-     * 
-     * @throws \Engfabiodesalvi\Exceptions\HttpException
+     *
+     * @throws \Engfabiodesalvi\BuscaCepPhp\Domain\Exceptions\HttpException
      */
     // Apenas retorna uma string.
     // json_decode() será realizado por outro componente.
@@ -41,5 +42,4 @@ interface HttpClientInterface
     public function send(
         Request $request
     ): Response;
-    
 }

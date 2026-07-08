@@ -25,8 +25,8 @@ interface ProviderInterface
 
     /**
      * Consulta um CEP.
-     * 
-     * @throws \Engfabiodesalvi\BuscaCepPhp\Exceptions\ProviderException
+     *
+     * @throws \Engfabiodesalvi\BuscaCepPhp\Domain\Exceptions\ProviderException
      */
     // Passar um objeto Value Object Cep como argumento garante um CEP válido
     //public function search(Cep $cep): Address;

@@ -2,11 +2,13 @@
 
 namespace Engfabiodesalvi\BuscaCepPhp;
 
-class Search{
+class Search
+{
     // O CEP será buscado nesta URL
     private string $url = "http://viacep.com.br/ws/";
 
-    public function getAdressFromZipcode(string $zipCode): array{
+    public function getAdressFromZipcode(string $zipCode): array
+    {
         // Remove caracteres indesejados
         $zipCode = preg_replace('/[^0-9]/im', '', $zipCode);
 
@@ -15,7 +17,5 @@ class Search{
 
         // Retorna o resultado
         return (array) json_decode($get);
-
     }
-
 }

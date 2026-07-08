@@ -16,9 +16,11 @@ final class ProviderFactory
 {
     public function create(): ProviderCollection
     {
-        $http = new HttpClient;
+        $http = new HttpClient();
 
         return new ProviderCollection([
+
+            // new CepAbertoProvider($http),
 
             new ViaCepProvider($http),
 
@@ -29,7 +31,7 @@ final class ProviderFactory
             new AwesomeApiProvider($http),
 
             new CepAbertoProvider($http)
-            
+
         ]);
     }
 }

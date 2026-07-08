@@ -17,13 +17,13 @@ interface CacheInterface
 
     public function get(string $key): mixed;
 
-    public function set(
+    public function put( //set
         string $key,
         mixed $value,
-        int $ttl = 3600
+        int $ttl
     ): void;
 
     public function delete(string $key): void;
 
-    public function clear() : void;
+    public function clear(): void;
 }

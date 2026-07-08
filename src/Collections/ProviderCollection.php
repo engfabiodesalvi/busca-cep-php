@@ -8,8 +8,11 @@ use Engfabiodesalvi\BuscaCepPhp\Contracts\ProviderInterface;
 use Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers\AbstractProvider;
 use IteratorAggregate;
 use ArrayIterator;
-use Traversable; 
+use Traversable;
 
+/**
+ * @implements \IteratorAggregate<int, AbstractProvider>
+ */
 final class ProviderCollection implements IteratorAggregate
 {
     /**
@@ -17,18 +20,16 @@ final class ProviderCollection implements IteratorAggregate
      */
     private array $providers = [];
 
-    /**     
+    /**
      * @param AbstractProvider[] $providers
      */
     // @param ProviderInterface[] $providers
     public function __construct(
         array $providers = []
-    )
-    {
+    ) {
         foreach (
             $providers as $provider
-        )
-        {
+        ) {
             $this->add($provider);
         }
     }
