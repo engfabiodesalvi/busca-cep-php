@@ -7,22 +7,21 @@ namespace Engfabiodesalvi\BuscaCepPhp\Domain\Exceptions;
 use Override;
 use Throwable;
 
-class ProviderException extends CepException
+class NormalizerException extends CepException
 {
     //#[Override]
     public function __construct(
         string $provider = '',
-        string $message = '',
-        int $code = 0,
+        string $field = '',
         ?Throwable $previous = null
     ) {
         parent::__construct(
             sprintf(
-                '[%s] %s',
-                $provider,
-                $message
+                'Unable to normalize field "%s" from provider "%s".',
+                $field,
+                $provider
             ),
-            $code,
+            0,
             $previous
         );
     }
