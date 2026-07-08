@@ -14,31 +14,19 @@ final class OpenCepNormalizer implements NormalizerInterface
     #[Override]
     public function normalize(
         array $data
-    ): Address
-    {
-       
+    ): Address {
+
         return new Address(
-            
-            cep: $data['cep'] ?? '',
-
-            street: $data['logradouro'] ?? '',
-
-            complement: $data['complemento'] ?? '',
-
-            district: $data['bairro'] ?? '',
-
-            city: $data['localidade'] ?? '',
-
-            state: $data['uf'] ?? '',
-
-            ibge: $data['ibge'] ?? '',
-
+            cep: (string) ($data['cep'] ?? ''),
+            street: (string) ($data['logradouro'] ?? ''),
+            complement: (string) ($data['complemento'] ?? ''),
+            district: (string) ($data['bairro'] ?? ''),
+            city: (string) ($data['localidade'] ?? ''),
+            state: (string) ($data['uf'] ?? ''),
+            ibge: (string) ($data['ibge'] ?? ''),
             gia: '',
-
             ddd: '',
-
             siafi: '',
-
             provider: Provider::OPEN_CEP
         );
     }

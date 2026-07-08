@@ -14,20 +14,19 @@ final class ViaCepNormalizer implements NormalizerInterface
     #[Override]
     public function normalize(
         array $data
-    ): Address
-    {
+    ): Address {
 
         return new Address(
-            cep: $data['cep'] ?? '',
-            street: $data['logradouro'] ?? '',
-            complement: $data['complemento'] ?? '',
-            district: $data['bairro'] ?? '',
-            city: $data['localidade'] ?? '',
-            state: $data['uf'] ?? '',
-            ibge: $data['ibge'] ?? '',
-            gia: $data['gia'] ?? '',
-            ddd: $data['ddd'] ?? '',
-            siafi: $data['siafi'] ?? '',
+            cep: (string) ($data['cep'] ?? ''),
+            street: (string) ($data['logradouro'] ?? ''),
+            complement: (string) ($data['complemento'] ?? ''),
+            district: (string) ($data['bairro'] ?? ''),
+            city: (string) ($data['localidade'] ?? ''),
+            state: (string) ($data['uf'] ?? ''),
+            ibge: (string) ($data['ibge'] ?? ''),
+            gia: (string) ($data['gia'] ?? ''),
+            ddd: (string) ($data['ddd'] ?? ''),
+            siafi: (string) ($data['siafi'] ?? ''),
             provider: Provider::VIA_CEP
         );
     }

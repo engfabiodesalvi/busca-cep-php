@@ -14,18 +14,17 @@ final class CepAbertoNormalizer implements NormalizerInterface
     #[Override]
     public function normalize(
         array $data
-        ): Address
-    {
+    ): Address {
         return new Address(
-            cep: $data['cep'] ?? '',
-            street: $data['logradouro'] ?? '',
-            complement: $data['complemento'] ?? '',
-            district: $data['bairro'] ?? '',
-            city: $data['cidade']['nome'] ?? '',
-            state: $data['estado']['sigla'] ?? '',
-            ibge: $data['cidade']['ibge'] ?? '',
+            cep: (string) ($data['cep'] ?? ''),
+            street: (string) ($data['logradouro'] ?? ''),
+            complement: (string) ($data['complemento'] ?? ''),
+            district: (string) ($data['bairro'] ?? ''),
+            city: (string) ($data['cidade']['nome'] ?? ''),
+            state: (string) ($data['estado']['sigla'] ?? ''),
+            ibge: (string) ($data['cidade']['ibge'] ?? ''),
             gia: '',
-            ddd: $data['cidade ']['ddd'] ?? '',
+            ddd: (string) ($data['cidade']['ddd'] ?? ''),
             siafi: '',
             provider: Provider::CEP_ABERTO
         );
@@ -33,19 +32,19 @@ final class CepAbertoNormalizer implements NormalizerInterface
 }
 
 // {
-// 	"altitude": 760.0,
-// 	"cep": "01001000",
-// 	"latitude": "-23.5479099981",
-// 	"longitude": "-46.636",
-// 	"logradouro": "Praça da Sé",
-// 	"bairro": "Sé",
-// 	"complemento": "- lado ímpar",
-// 	"cidade": {
-// 		"ddd": 11,
-// 		"ibge": "3550308",
-// 		"nome": "São Paulo"
-// 	},
-// 	"estado": {
-// 		"sigla": "SP"
-// 	}
+//  "altitude": 760.0,
+//  "cep": "01001000",
+//  "latitude": "-23.5479099981",
+//  "longitude": "-46.636",
+//  "logradouro": "Praça da Sé",
+//  "bairro": "Sé",
+//  "complemento": "- lado ímpar",
+//  "cidade": {
+//      "ddd": 11,
+//      "ibge": "3550308",
+//      "nome": "São Paulo"
+//  },
+//  "estado": {
+//      "sigla": "SP"
+//  }
 // }

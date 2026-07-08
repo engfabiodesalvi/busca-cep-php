@@ -14,15 +14,14 @@ final class BrasilApiNormalizer implements NormalizerInterface
     #[Override]
     public function normalize(
         array $data
-    ): Address
-    {
+    ): Address {
         return new Address(
-            cep: $data['cep'] ?? '',
-            street: $data['street'] ?? '',
+            cep: (string)( $data['cep'] ?? ''),
+            street: (string) ($data['street'] ?? ''),
             complement: '',
-            district: $data['neighborhood'] ?? '',
-            city: $data['city'] ?? '',
-            state: $data['state'] ?? '',
+            district: (string) ($data['neighborhood'] ?? ''),
+            city: (string) ($data['city'] ?? ''),
+            state: (string) ($data['state'] ?? ''),
             ibge: '',
             gia: '',
             ddd: '',
