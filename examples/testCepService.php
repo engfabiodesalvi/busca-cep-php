@@ -7,33 +7,48 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Engfabiodesalvi\BuscaCepPhp\Domain\ValueObject\Cep;
 use Engfabiodesalvi\BuscaCepPhp\Application\Services\CepService;
 use Engfabiodesalvi\BuscaCepPhp\Collections\ProviderCollection;
+use Engfabiodesalvi\BuscaCepPhp\Domain\Exceptions\CepException;
 use Engfabiodesalvi\BuscaCepPhp\Factory\ProviderFactory;
 
+try {
+    // $factory = (new ProviderFactory())->create();
 
-// $factory = (new ProviderFactory())->create();
+    $factory = new ProviderFactory();
 
-$factory = new ProviderFactory();
+    $service = new CepService(
+        $factory->create()
+    );
 
-$service = new CepService(
-    $factory->create()
-);
+    $cep = '01001000';
 
-$cep = '01001000';
+    $address = $service->search(
+        new Cep($cep)
+    );
 
-$address = $service->search(
-    new Cep($cep)
-);
+    echo "CEP: " . $address->cep() . "\n";
+    echo "Cidade: " . $address->city() . "\n";
+    echo "Provedor: " .  $address->provider()->label() . "\n";
 
-echo "CEP: " . $address->cep() . "\n";
-echo "Cidade: " . $address->city() . "\n";
+} catch (CepException $e) {
 
+    echo 'Erro: ' . $e->getMessage() . PHP_EOL;
+}
 
-// Criando um serviço com uma coleção de provedores vazia
-$service2 = new CepService(
-    new ProviderCollection()
-);
+//------------------
 
-// Lançamento de excessão
-$address2 = $service2->search(
-    new Cep($cep)
-);
+try {
+
+    // Criando um serviço com uma coleção de provedores vazia
+    $service2 = new CepService(
+        new ProviderCollection()
+    );
+
+    // Lançamento de excessão
+    $address2 = $service2->search(
+        new Cep($cep)
+    );
+
+} catch (CepException $e) {
+
+    echo 'Erro: ' . $e->getMessage() . PHP_EOL;
+}    
