@@ -1,6 +1,6 @@
 <?php
 
-// Componente responsável por armazenar o retorno das solicitações 
+// Componente responsável por armazenar o retorno das solicitações
 
 declare(strict_types=1);
 
@@ -15,7 +15,7 @@ final readonly class Response
         private int $statusCode,
         private string $body,
         private array $headers = []
-    ) {        
+    ) {
     }
 
     public function statusCode(): int
@@ -62,6 +62,8 @@ final readonly class Response
      */
     public function json(): array
     {
+        // var_dump($this->body);
+
         return json_decode(
             $this->body,
             true,

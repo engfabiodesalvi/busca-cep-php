@@ -24,10 +24,10 @@ final readonly class Request
         private array $query = [],
         private ?string $body = null,
         private int $timeout = 10
-    ) {        
+    ) {
     }
 
-    public function scheme():string
+    public function scheme(): string
     {
         return $this->scheme;
     }
@@ -37,7 +37,8 @@ final readonly class Request
         return $this->host;
     }
 
-    public function path(): string {
+    public function path(): string
+    {
         return $this->path;
     }
 
@@ -117,5 +118,4 @@ final readonly class Request
     // {
     //     return $this->timeout;
     // }
-
 }

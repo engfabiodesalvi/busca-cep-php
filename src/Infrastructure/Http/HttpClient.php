@@ -6,7 +6,6 @@ namespace Engfabiodesalvi\BuscaCepPhp\Infrastructure\Http;
 
 use Engfabiodesalvi\BuscaCepPhp\Contracts\HttpClientInterface;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Exceptions\HttpException;
-use Exception;
 
 final class HttpClient implements HttpClientInterface
 {
@@ -34,38 +33,34 @@ final class HttpClient implements HttpClientInterface
                 int $severity,
                 string $message
             ): never {
-                // throw new HttpException($message);
-                throw new \Exception($message);
+                throw new HttpException($message);
+                // throw new \Exception($message);
             }
         );
 
         try {
-
             $body = file_get_contents(
                 $request->url(),
                 false,
                 $context
             );
-            
-            $headers = $http_response_header ?? [];
 
+            $headers = $http_response_header ;//?? [];
         } finally {
-
             restore_error_handler();
-
         }
 
         if ($body === false) {
-            // throw new HttpException(
+            throw new HttpException(
+                'Resposta HTTP inválida.'
+            );
+            // throw new \Exception(
             //     'Resposta HTTP inválida.'
             // );
-            throw new \Exception(
-                'Resposta HTTP inválida.'
-            );            
         }
 
-        
-        //var_dump($headers);        
+
+        //var_dump($headers);
 
         //global $http_response_header;
 
@@ -88,7 +83,7 @@ final class HttpClient implements HttpClientInterface
             statusCode: $status,
             body: $body,
             headers: HttpHeaders::parse(
-                $headers ?? []
+                $headers //?? []
             )
         );
     }

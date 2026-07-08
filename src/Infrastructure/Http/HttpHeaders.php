@@ -12,12 +12,10 @@ final class HttpHeaders
      */
     public static function toLines(
         array $headers
-    ): array
-    {
+    ): array {
         $lines = [];
 
         foreach ($headers as $key => $value) {
-
             $lines[] = "{$key}: {$value}";
         }
 
@@ -30,12 +28,10 @@ final class HttpHeaders
      */
     public static function parse(
         array $headers
-    ): array
-    {
+    ): array {
         $parsed = [];
 
         foreach ($headers as $header) {
-
             if (!str_contains($header, ':')) {
                 continue;
             }
@@ -44,8 +40,8 @@ final class HttpHeaders
                 ':',
                 $header,
                 2
-            );   
-            
+            );
+
             $parsed[trim($key)] = trim($value);
         }
 

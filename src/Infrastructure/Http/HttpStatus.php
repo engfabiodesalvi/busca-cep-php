@@ -20,7 +20,7 @@ final class HttpStatus
     public const SERVICE_UNAVAILABLE = 503;
     public const GATEWAY_TIMEOUT = 504;
 
-    
+
     public static function isSuccess(int $status): bool
     {
         return $status >= 200
@@ -29,19 +29,15 @@ final class HttpStatus
 
     public static function isClientError(
         int $status
-    ): bool
-    {
+    ): bool {
         return $status >= 400
             && $status < 500;
     }
 
     public static function isServerError(
         int $status
-    ): bool
-    {
+    ): bool {
         return $status >= 500
             && $status < 600;
     }
-    
-
 }
