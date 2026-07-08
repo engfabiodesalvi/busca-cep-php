@@ -39,10 +39,14 @@ Thumbs.db
 # --- Arquivos de cache ---
 /examples/cache/
 
-# --- Pasta Var
+# --- Pasta Var ---
 /var/
 /var/*
 !/var/.gitkeep
 /vendor/
 /.phpunit.cache/
 /coverage/
+
+# --- Relatorios ---
+/report-tests.html/
+report-tests.txt

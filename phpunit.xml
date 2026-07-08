@@ -16,4 +16,10 @@
 
     </testsuites>
 
+    <source restrictNotices="true" restrictWarnings="true">
+        <include>
+            <directory suffix=".php">src</directory> <!-- Troque 'src' pela pasta do seu código se for diferente -->
+        </include>
+    </source>
+
 </phpunit>

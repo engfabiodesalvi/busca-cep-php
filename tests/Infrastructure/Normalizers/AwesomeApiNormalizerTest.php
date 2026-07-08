@@ -203,3 +203,32 @@ final class AwesomeApiNormalizerTest extends TestCase
 
 // Na raiz do projeto, execute:
 // $ ./vendor/bin/phpunit tests/Infrastructure/Normalizers/AwesomeApiNormalizerTest.php
+
+
+// Teste com log
+// $ ./vendor/bin/phpunit tests/Infrastructure/Normalizers/AwesomeApiNormalizerTest.php --testdox-text report-tests.txt
+
+// Teste com XDebug
+// (instalar o driver)
+
+// Adicionar variável ao arquivo .ini:
+// Via prompt: $ sudo nano /etc/php/8.3/mods-available/xdebug.ini
+// Via vscode: $ sudo code --user-data-dir=/root /etc/php/8.3/mods-available/xdebug.ini
+//          ou $ code /etc/php/8.3/mods-available/xdebug.ini (se o usuário já tiver as permissões configuradas)
+
+// Teste:
+// $ ./vendor/bin/phpunit tests/Infrastructure/Normalizers/AwesomeApiNormalizerTest.php --colors=always --coverage-html report-tests.html
+
+// Configurar o diretório para analisar a cobertura:
+// Arquivo phpunit.xml localizado na raiz do diretório do projeto
+// Incluir:
+    // <!-- ADICIONE ESTE BLOCO ABAIXO -->
+    // <source restrictNotices="true" restrictWarnings="true">
+    //     <include>
+    //         <directory suffix=".php">src</directory> <!-- Troque 'src' pela pasta do seu código se for diferente -->
+    //     </include>
+    // </source>
+
+// Visualizar o relatório:
+//      no windows: $ wslview report-tests.html/index.html
+//      no wsl linux: $ xdg-open report-tests.html/index.html
