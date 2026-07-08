@@ -14,7 +14,6 @@ use Override;
 
 final class ViaCepProvider extends AbstractProvider
 {
-    
     #[Override]
     public function getName(): string
     {
@@ -34,26 +33,21 @@ final class ViaCepProvider extends AbstractProvider
     ): Request {
 
         return new Request(
-
             host: 'viacep.com.br',
-
             path: sprintf(
-                '/ws/%s/json/',
+                '/ws/%s/json',
                 $cep->value()
             ),
-
             method: HttpMethod::GET,
-
             headers: [
 
                 'Accept'
-                    =>'application/json',
+                    => 'application/json',
 
                 'User-Agent'
                     => 'BuscaCepPhp/1.0'
-                    
-            ],
 
+            ],
             timeout: Provider::VIA_CEP
                 ->timeout()
         );

@@ -29,19 +29,14 @@ final class OpenCepProvider extends AbstractProvider
     #[Override]
     protected function buildRequest(
         Cep $cep
-    ): Request
-    {
+    ): Request {
         return new Request(
-
             host: 'opencep.com',
-
             path: sprintf(
                 '/v1/%s.json',
                 $cep->value()
             ),
-
             method: HttpMEthod::GET,
-
             headers: [
 
                 'Accept' => 'application/json',
@@ -49,7 +44,6 @@ final class OpenCepProvider extends AbstractProvider
                 'User-Agent' => 'BuscaCepPhp/1.0'
 
             ],
-
             timeout: Provider::OPEN_CEP
                 ->timeout()
         );

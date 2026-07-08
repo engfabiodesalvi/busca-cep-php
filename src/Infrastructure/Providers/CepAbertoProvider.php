@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Engfabiodesalvi\BuscaCepPhp\Infrastructure\Providers;
 
+use Engfabiodesalvi\BuscaCepPhp\Config\Config;
 use Engfabiodesalvi\BuscaCepPhp\Contracts\NormalizerInterface;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\HttpMethod;
 use Engfabiodesalvi\BuscaCepPhp\Domain\Enums\Provider;
@@ -30,36 +31,33 @@ final class CepAbertoProvider extends AbstractProvider
     #[Override]
     protected function buildRequest(
         Cep $cep
-    ): Request
-    {
+    ): Request {
+        $token = Config::get('cepaberto_token');
+
+        // echo "Token: " . $token . PHP_EOL;
 
         return new Request(
-
             host: 'www.cepaberto.com',
-
             path: sprintf(
                 '/api/v3/cep?cep=%s',
                 $cep->value()
             ),
-
             method: HttpMethod::GET,
-
             headers: [
 
                 'Accept'
-                    =>'application/json',
+                    => 'application/json',
 
                 'User-Agent'
                     => 'BuscaCepPhp/1.0',
-                
-                'Authorization'
-                    => 'Token token=TOKEN_REMOVIDO'
-                    
-            ],
 
+                'Authorization'
+                    => 'Token token=' . $token
+
+            ],
             timeout: Provider::CEP_ABERTO
                 ->timeout()
-        );        
+        );
     }
 
     #[Override]

@@ -14,7 +14,6 @@ use Override;
 
 final class AwesomeApiProvider extends AbstractProvider
 {
-
     #[Override]
     public function getName(): string
     {
@@ -31,33 +30,27 @@ final class AwesomeApiProvider extends AbstractProvider
     #[Override]
     protected function buildRequest(
         Cep $cep
-    ): Request
-    {
+    ): Request {
 
         return new Request(
-
             host: 'cep.awesomeapi.com.br',
-
             path: sprintf(
                 '/json/%s',
                 $cep->value()
             ),
-
             method: HttpMethod::GET,
-
             headers: [
 
                 'Accept'
-                    =>'application/json',
+                    => 'application/json',
 
                 'User-Agent'
                     => 'BuscaCepPhp/1.0'
-                    
-            ],
 
+            ],
             timeout: Provider::AWESOME_API
                 ->timeout()
-        );        
+        );
     }
 
     #[Override]

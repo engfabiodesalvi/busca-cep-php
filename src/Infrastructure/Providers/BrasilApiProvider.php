@@ -28,29 +28,24 @@ final class BrasilApiProvider extends AbstractProvider
     #[Override]
     protected function buildRequest(
         Cep $cep
-    ): Request
-    {
+    ): Request {
         return new Request(
             // https://brasilapi.com.br/api/cep/v2/01001000
             host: 'brasilapi.com.br',
-
             path: sprintf(
                 '/api/cep/v2/%s',
                 $cep->value()
             ),
-
             method: HttpMethod::GET,
-
             headers: [
 
                 'Accept'
-                    =>'application/json',
+                    => 'application/json',
 
                 'User-Agent'
                     => 'BuscaCepPhp/1.0'
 
             ],
-
             timeout: Provider::BRASIL_API
                 ->timeout()
         );
@@ -60,5 +55,5 @@ final class BrasilApiProvider extends AbstractProvider
     protected function normalizer(): NormalizerInterface
     {
         return new BrasilApiNormalizer();
-    }        
+    }
 }
