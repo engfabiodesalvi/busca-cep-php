@@ -1,4 +1,5 @@
 <?php
+
 // Data Transfer Object - DTO responsável por
 // padrnizar os dados recebidos pelas diversas APIs (Providers)
 // de constulta de CEP.
@@ -23,8 +24,7 @@ final readonly class Address
         private string $ddd,
         private string $siafi,
         private Provider $provider
-    )
-    {        
+    ) {
     }
 
     public function cep(): string
@@ -72,9 +72,9 @@ final readonly class Address
         return $this->ddd;
     }
 
-    public function siafi() : string 
+    public function siafi(): string
     {
-        return $this->siafi;    
+        return $this->siafi;
     }
 
     public function provider(): Provider
@@ -121,7 +121,7 @@ final readonly class Address
 
     public function isComplete(): bool
     {
-        return  
+        return
             $this->street !== ''
             && $this->district !== ''
             && $this->city !== ''

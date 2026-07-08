@@ -5,7 +5,7 @@
 // - Remover a máscara
 // - verificar tamanho da string
 // - mantém apenas os números da string
-// - criar um objeto válido 
+// - criar um objeto válido
 //
 // Objeto nunca será inválido (imutabilidade).
 // Após o objeto ser criado não é possível modificar o seu valor.
@@ -16,24 +16,24 @@ declare(strict_types=1);
 
 namespace Engfabiodesalvi\BuscaCepPhp\Domain\ValueObject;
 
-use Engfabiodesalvi\BuscaCepPhp\Exceptions\InvalidCepException;
+use Engfabiodesalvi\BuscaCepPhp\Domain\Exceptions\InvalidCepException;
 
 final readonly class Cep
 {
     private string $value;
 
-    public function __construct(string $cep)    
-    {        
+    public function __construct(string $cep)
+    {
         $cep = preg_replace('/\D/', '', $cep);
 
         if ($cep === null || strlen($cep) !== 8) {
-            // throw new InvalidCepException(
-            //     'CEP inválido.'
-            // );
-            throw new \Exception('CEP inválido.');
-        }        
+            throw new InvalidCepException(
+                'CEP inválido.'
+            );
+            // throw new \Exception('CEP inválido.');
+        }
 
-        $this->value = $cep;        
+        $this->value = $cep;
     }
 
     // Retorna o CEP armazenado: '01001000'
@@ -41,7 +41,7 @@ final readonly class Cep
     {
         return $this->value;
     }
-    
+
     // Retorna o CEP armazenado: '01001000'
     public function toString(): string
     {
@@ -65,8 +65,7 @@ final readonly class Cep
     // Compara CEPs
     public function equals(
         Cep $other
-    ): bool
-    {
+    ): bool {
         return $this->value === $other->value;
     }
 }
